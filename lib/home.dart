@@ -466,60 +466,46 @@ class Home extends StatelessWidget {
             height: 60.0,
             color: Colors.white,
             child: Row(
-
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Container(
-                  child: Stack(
-                    clipBehavior: Clip.none,
-                    children: [
-                      Positioned(
-                        child: Image(
-                          image: AssetImage(
-                              'assets/user.png'),
-                          width: 50,
-                          height: 0,
-                        ),
-                      ),
-                      Positioned(
-                        left: -135,
-                        bottom: -23,
-
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(builder: (context) => profile()),
-                                  (Route<dynamic> route) => false,
-                            );
-                          }, // Image tapped
-                            child: Image.asset(
-                            'assets/user.png',
-                            fit: BoxFit.cover, // Fixes border issues
-                            width: 80.0,
-                            height: 80.0,
-                            ),
-                            ),
-                        /*child: Image(
-                          image: AssetImage(
-                              'assets/user.png'),
-                          width: 45,
-                          height: 45,
-                        ),*/
-                      ),
-
-
-                      Positioned(
-                        left: 135,
-                        bottom: -23,
-                        child: Image(
-                          image: AssetImage(
-                              'assets/medal.png'),
-                          width: 45,
-                          height: 45,
-                        ),
-                      ),
-                    ],
+                InkWell(
+                  onTap: () {
+                    {
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => profile()),
+                            (Route<dynamic> route) => false,
+                      );
+                    };
+                  }, // Image tapped
+                  splashColor: Colors.white10, // Splash color over image
+                  child: Image(
+                    fit: BoxFit.cover, // Fixes border issues
+                    width: 50,
+                    height: 50,
+                    image: AssetImage(
+                        'assets/user.png',
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    {
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => tasks()),
+                            (Route<dynamic> route) => false,
+                      );
+                    };
+                  }, // Image tapped
+                  splashColor: Colors.white10, // Splash color over image
+                  child: Image(
+                    fit: BoxFit.cover, // Fixes border issues
+                    width: 50,
+                    height: 50,
+                    image: AssetImage(
+                      'assets/medal.png',
+                    ),
                   ),
                 ),
               ],
@@ -572,3 +558,53 @@ class Home extends StatelessWidget {
     );
   }
 }
+
+/*
+
+Image(
+image: AssetImage(
+'assets/user.png'),
+width: 50,
+height: 0,
+),
+
+
+InkWell(
+onTap: () {}, // Image tapped
+splashColor: Colors.white10, // Splash color over image
+child: Ink.image(
+fit: BoxFit.cover, // Fixes border issues
+width: 100,
+height: 100,
+image: AssetImage(
+'assets/cat.jpg,
+),
+),
+)
+
+
+Image(
+image: AssetImage(
+'assets/medal.png'),
+width: 45,
+height: 45,
+),
+
+
+GestureDetector(
+onTap: () {
+Navigator.pushAndRemoveUntil(
+context,
+MaterialPageRoute(builder: (context) => profile()),
+(Route<dynamic> route) => false,
+);
+}, // Image tapped
+child: Image.asset(
+'assets/user.png',
+fit: BoxFit.cover, // Fixes border issues
+width: 80.0,
+height: 80.0,
+),
+),
+
+*/
